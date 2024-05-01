@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error: Kata Tidak Ditemukan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .error-container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Error: Kata Tidak Ditemukan</h1>
+        <p>Kata yang Anda cari tidak dapat ditemukan dalam kamus kami.</p>
+        <p>
+            {% if suggested_words %}
+                Apakah Anda mencari kata ini? 
+                <ul>
+                    {% for word in suggested_words %}
+                        <li><a href='/detail/{{ word }}'>{{ word }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </p>
+        <p>Silakan kembali ke <a href="/">halaman utama</a> dan coba kata lain.</p>
+    </div>
+    
+</body>
+</html>
